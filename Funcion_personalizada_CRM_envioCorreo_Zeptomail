@@ -1,0 +1,14 @@
+// Crea el objeto de correo electrónico
+email = {"template_key":"2d6f.43963eb5cb0d940f.k1.b7fb4610-e409-11ed-9aca-525400fa05f6.187bc9c94f1","bounce_address":"support@sbitmx.tech.sbitmx.tech","from":{"address":"noreply@sbitmx.tech","name":"sbit"},"to":{{"email_address":{"address":CORREO,"name":"Ernesto"}}},"subject":"Trato Ganado","htmlbody":"<div><b> ¡Felicitaciones! Se ha ganado un nuevo trato en Zoho CRM. </b></div>"};
+// Define los parámetros ddel header
+headers = {"Accept":"application/json","Content-Type":"application/json","Authorization":"Zoho-enczapikey wSsVR61y/hKlXaksnj38JOw/zVkDBV+kRkV431X36nqGfnBpcc4nhKfDAShGqQcGDJhFDQToe8rn0sAh2YHjY8ky10IXSiF9mqRe1U4J3x17qnvhDzOXmRbmxuALIwOzg9unGNiFM"};
+response = invokeurl
+[
+	url :"https://api.zeptomail.com/v1.1/email/template"
+	type :POST
+	parameters:email.toString()
+	headers:headers
+];
+info email;
+info headers;
+info response;
