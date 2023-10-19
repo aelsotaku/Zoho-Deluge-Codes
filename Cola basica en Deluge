@@ -1,0 +1,56 @@
+// Inicializar una cola vacía (una lista en este caso)
+cola = List();
+
+// Agregar elementos a la cola
+cola.add(" 1");
+cola.add(" 2");
+cola.add(" 3");
+cola.add(" 4");
+cola.add(" 5");
+
+info "Contenido de la cola al inicio: " + cola;
+
+// Variable para mantener el índice
+indice = 0;
+
+for each elemento in cola {
+    // Acceder al elemento actual de la cola
+    elemento_actual = cola.get(indice);
+    
+    // Eliminar el elemento actual de la cola
+    elemento_eliminado = cola.remove(indice);
+    
+    // Verificar si la cola está vacía
+    esta_vacia = cola.isEmpty();
+    
+    if (!esta_vacia) {
+        // Acceder al siguiente elemento (el nuevo elemento en la misma posición)
+        siguiente_elemento = cola.get(indice);
+
+    } else {
+        siguiente_elemento = null;
+    }
+    
+    // Mostrar los resultados de la iteración
+    info "Elemento actual: " + elemento_actual;
+    info "Elemento eliminado: " + elemento_eliminado;
+    info "La cola está vacía: " + esta_vacia;
+    info "Siguiente elemento: " + siguiente_elemento;
+	
+    // Incrementar el índice para avanzar al siguiente elemento
+    indice = indice;
+	
+}
+
+// Mostrar el contenido final de la cola
+info "Contenido de la cola al final: " + cola;
+
+/* Agregar los elementos nuevamente al final de la cola
+cola.add("Elemento 1");
+cola.add("Elemento 2");
+cola.add("Elemento 3");
+cola.add("Elemento 4");
+cola.add("Elemento 5");
+
+info "Con adición final: " + cola;
+*/
