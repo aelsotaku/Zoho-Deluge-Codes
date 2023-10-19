@@ -1,0 +1,24 @@
+all_records = zoho.creator.getRecords("sbitmx","api-connector","API_ZCRM_LEAD_Report","",1,1,"simpleconnectioncreato");
+//info all_records;
+data = all_records.getJSON("data");
+param = Map();
+//info data;
+for each  var in data
+{
+	varlist = var.toJSONList();
+	//info varlist;
+	//for each var2 in varlist
+	//{
+	//idempresa = var2.getJSON("ID");
+	empresa = varlist.getJSON("empresa");
+	apellido = varlist.getJSON("apellidos");
+	param.put("Last_Name",apellido);
+	param.put("Company",empresa);
+	//listempresa.add(idempresa,)
+	//mapempresa.put(idempresa,empresa);
+	//}
+}
+response = zoho.crm.createRecord("Leads",param);
+response = Map(response);
+info varlist;
+info response;
