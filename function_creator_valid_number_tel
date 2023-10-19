@@ -1,0 +1,13 @@
+// Obtener el valor ingresado en el campo
+valor_campo = input.Tel_fono_perdidas;
+// Definir la expresión regular para validar números y símbolos
+regex = "^[0-9\W]+$";
+// Validar la entrada con la expresión regular
+match = matches(valor_campo,regex);
+if(match != true)
+{
+	// Si la entrada no cumple con la expresión regular, mostrar un mensaje de error
+	alert "El campo debe contener solo números y símbolos";
+	// Limpiar el campo para que el usuario ingrese una entrada válida
+	reload;
+}
