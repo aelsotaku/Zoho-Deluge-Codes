@@ -1,0 +1,78 @@
+/*
+author: aelsotaku
+date:16/10/23
+*/
+
+// Definir agentes y sus herramientas dominadas con pesos numéricos
+agentes = Map();
+agentes.put("Agente 1", Collection("crm" : "5", "mail" : "4", "bigin" : "3"));
+agentes.put("Agente 2", Collection("bigin" : "5", "crm" : "4", "sprints" : "4"));
+agentes.put("Agente 3", Collection("books" : "5"));
+agentes.put("Agente 4", Collection("crm" : "5"));
+
+// Entrada de usuario: Nombre de la herramienta de Zoho
+nombre_herramienta = "crm";
+
+//info agentes.keys();
+//info agentes.values();
+//info agentes;
+//info nombre_herramienta.lower();
+
+// Variables para controlar la asignación justa
+agentes_con_mismo_peso = List();
+mayor_peso = -1;
+indice_asignacion = -1;
+
+//info proximo_agente;
+//info mayor_peso;
+if ( nombre_herramienta == "crm" ) 
+{
+	     mayor_peso = -1;  // Reinicializar el peso máximo
+         agentes_con_mismo_peso.clear();
+		 for each agente in agentes.keys() {
+                if (agentes.get(agente).containsKey("crm")) {
+                    peso_herramienta = agentes.get(agente).get("crm");
+                    if (peso_herramienta == mayor_peso) {
+                        agentes_con_mismo_peso.add(agente);
+                    } else if (peso_herramienta > mayor_peso) {
+                        mayor_peso = peso_herramienta;
+                        agentes_con_mismo_peso = List(agente);
+                    }
+                }
+            }
+}
+
+ // Implementar la asignación justa por turnos
+            if (!agentes_con_mismo_peso.isEmpty()) {
+				//info agentes_con_mismo_peso;
+                indice_asignacion = (indice_asignacion + 1) % agentes_con_mismo_peso.size();
+                proximo_agente = agentes_con_mismo_peso.get(indice_asignacion);
+            } else {
+                proximo_agente = null;
+				info proximo_agente;
+            }
+
+for each agente in agentes.keys()
+{
+	 herramientas_del_agente = agentes.get(agente);
+	 //info herramientas_del_agente;
+	 if ( herramientas_del_agente.containKey(nombre_herramienta) ) 
+     {
+		 peso_herramienta = herramientas_del_agente.get(nombre_herramienta);
+		 //info peso_herramienta;
+		 
+		 if (peso_herramienta > mayor_peso) {
+            mayor_peso = peso_herramienta;
+            proximo_agente = agente;
+        }
+		
+     }
+	 
+}
+
+// Verificar si se encontró un agente
+if (proximo_agente != null) {
+    info "El agente asignado para la herramienta '" + nombre_herramienta + "' es " + proximo_agente;
+} else {
+    info "No se encontró ningún agente disponible que domine la herramienta '" + nombre_herramienta + "'";
+}
